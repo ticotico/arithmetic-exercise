@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main()
+{
+	int array[10] = {0,1,2,3,4,5,6,7,8,9};
+	for(int i = 12; i <= 98; i++)
+	{
+		for(int j = 12; j <= 98; j++)
+		{
+			for(int k = 1; k <= 9; k++)
+			{
+				int x, y, a, b, c, sum;
+				a = i;
+				b = k;
+				c = j;
+				x = a * b;
+				y = x + c;
+				if(x < 99 && y < 99)
+				{
+					array[x/10] = 0;
+					array[x%10] = 0;
+					array[y/10] = 0;
+					array[y%10] = 0;
+					array[a/10] = 0;
+					array[a%10] = 0;
+					array[b] = 0;
+					array[c/10] = 0;
+					array[c%10] = 0;
+					sum = 0;
+					for(int K = 1; K <= 9; K++) sum += array[K];
+					if(sum == 0) printf("%2d = %2d * %1d + %2d\n", y, a, b, c);
+					for(int K = 1; K <= 9; K++) array[K] = K;
+				}
+			}
+		}
+	}
+	return 0;
+}
